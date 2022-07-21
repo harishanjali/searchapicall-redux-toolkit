@@ -10,6 +10,20 @@ h2{
     justify-content: center;
 }
 input{
-    height:30px;
+    height:40px;
     width:450px;
+    border-radius:20px;
+    padding-left: 15px;
+    padding-right:10px;
+    border-width:1px;
+}
+::placeholder{
+    font-size: 13px;
+    font-weight:bold;
+}
+select{
+    height:30px;
+    width:300px;
+    margin-top:10px;
+    border: 1.5px solid grey;
 }

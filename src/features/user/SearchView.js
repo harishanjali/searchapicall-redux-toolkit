@@ -1,7 +1,7 @@
 import React, { useEffect,useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchUsers } from './searchSlice'
-// import Card from '../card/Card'
+import Card from '../card/Card'
 import './user.css';
 
 export default function SearchView() {
@@ -25,9 +25,9 @@ export default function SearchView() {
   }
   return(
     <div>
-         <h2>List of Users</h2>
+         <h2>List of Plots</h2>
          {loading&&<p>Loading...</p>}
-         <input name='squery' onInput={(e)=> setState({...state,['query']:e.target.value})} type='search' placeholder='search any real estate digital:'/>
+         <input name='squery' onInput={(e)=> setState({...state,['query']:(e.target.value).toLowerCase()})} type='search' placeholder='Search any real estate digital:'/>
          <div>
          <select name='scollection' onChange={(e)=>setState({...state,['collection']:e.target.value})}>
           <option>decentraland</option>
@@ -36,13 +36,13 @@ export default function SearchView() {
          </select>
          </div>
          
-         <div>
-         {/* {products!==undefined&&products.map(each=>(
-            <Card details={each} key={each.id}/>
-         ))} */}
+         <div className='cards-container'>
          {products!==undefined&&products.map(each=>(
-            <p>{each.name}</p>
+            <Card details={each} key={each.item_id}/>
          ))}
+         {/* {products!==undefined&&products.map(each=>(
+            <p>{each.name}</p>
+         ))} */}
          </div>
          
      </div>
