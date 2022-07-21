@@ -5,7 +5,7 @@ import Card from '../card/Card'
 import './user.css';
 
 export default function SearchView() {
-  const [state,setState] = useState({query:'',collection:'decentraland'})
+  const [state,setState] = useState({query:'',collection:'decentraland',chain:''})
   const {products,loading} = useSelector((state) => state.user)
   const dispatch = useDispatch()
   useEffect(() => {
@@ -28,12 +28,23 @@ export default function SearchView() {
          <h2>List of Plots</h2>
          {loading&&<p>Loading...</p>}
          <input name='squery' onInput={(e)=> setState({...state,['query']:(e.target.value).toLowerCase()})} type='search' placeholder='Search any real estate digital:'/>
-         <div>
-         <select name='scollection' onChange={(e)=>setState({...state,['collection']:e.target.value})}>
+         <div className='filters-section'>
+          <div>
+            <p>Worlds</p>
+          <select name='scollection' onChange={(e)=>setState({...state,['collection']:e.target.value})}>
           <option>decentraland</option>
           <option>lofty</option>
           <option>sandbox</option>
          </select>
+          </div>
+         <div>
+          <p>Blockchain</p>
+         <select name='schain' onChange={(e)=>setState({...state,['chain']:e.target.value})}>
+          <option>algorand</option>
+          <option>cardano</option>
+         </select>
+         </div>
+        
          </div>
          
          <div className='cards-container'>

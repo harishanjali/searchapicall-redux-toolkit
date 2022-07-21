@@ -9,10 +9,10 @@ const initialState = {
 
 // Generates pending, fulfilled and rejected action types
 export const fetchUsers = createAsyncThunk('user/fetchUsers', async(queries) => {
-  const {query,collection} = queries;
+  const {query,collection,chain} = queries;
   // console.log(queries);
   return await axios
-    .get(`https://satotest.araa.land/api/search_items?query=${query}&collection=${collection}`,{
+    .get(`https://satotest.araa.land/api/search_items?query=${query}&collection=${collection}&chain=${chain}`,{
     headers:{
       'X-API-KEY':'53fC26YCYeoNJWMxscaeW4ZaUmKyypovMRpcvNa29h9V'
     }}
