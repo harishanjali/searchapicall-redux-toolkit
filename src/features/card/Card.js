@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 export default function Card(props) {
     const {details} = props;
-    console.log(details);
+    // console.log(details);
     // let price = details.price;
   return (
     <div className='card'>
