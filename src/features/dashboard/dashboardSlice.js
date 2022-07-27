@@ -13,7 +13,8 @@ export const fetchDashboard = createAsyncThunk('dashboard/fetchDashboard', async
     .get(`https://satotest.araa.land/api/dashboard`,{
       headers:{
         'X-API-KEY':'53fC26YCYeoNJWMxscaeW4ZaUmKyypovMRpcvNa29h9V'
-      }}
+      }
+    }
     
     )
     .then(response =>response.data.assets.digital_land.ethereum['0xb15069b02e4E9177cb473CbeF3a37Ba1Ed704b26'].erc721)

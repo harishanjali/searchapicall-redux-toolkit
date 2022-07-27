@@ -1,18 +1,21 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Spinner from '../spinner/Spinner'
+import ReactTooltip from 'react-tooltip';
+
+import './index.css'
 
 export default function CardDash(props) {
-  const [state,setState] = useState({flag:false})
+  const [flag,setState] = useState(true)
   const {details} = props
-  // let flag = false;
   const loaded = ()=>{
-    setState({...state,flag:true})
+    setState(false)
+    console.log('handled')
   }
-  const {flag} = state;
+// console.log(details)
   return (
-    <div>
-      {flag===false?<Spinner/>:<img onLoad={loaded} src={details.image} style={{height:'100px',width:'100px'}}/>}
-      
-    </div>
+    <>
+    
+    </>
+    
   )
 }
