@@ -7,12 +7,13 @@ import ReactTooltip from 'react-tooltip';
 
 export default function DashboardView() {
     const {products,loading} = useSelector((state) => state.dashboard)
+    const [tooltip, showTooltip] = useState(true);
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchDashboard())
   }, [])
   const count=1;
-console.log(products)
+// console.log(products)
   return (
     <>
     
@@ -25,12 +26,17 @@ console.log(products)
   </thead>
   {products.map(each=>(
     <tbody>
-      <td data-tip={each.name}>
+      <td data-tip={each.name} onMouseEnter={() => showTooltip(true)}
+      onMouseLeave={() => {
+        showTooltip(false);
+        setTimeout(() => showTooltip(true),10);
+      }}
+      >
       {each.name}</td>
     <td>$null</td>
     <td>+13.5%</td>
     <td>$1.8</td>
-    <ReactTooltip wrapper='span'/>
+    {tooltip && <ReactTooltip effect="solid" />}
     </tbody>
         ))}
 </table>
