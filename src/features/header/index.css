@@ -13,3 +13,6 @@ li{
     background-color: grey;
     padding: 10px;
 }
+.link:hover,li:hover{
+    color:goldenrod;
+}

@@ -22,7 +22,7 @@ export default function Header(props) {
         </button>
         </li>
         <li>
-        <button type="button" className="" data-bs-toggle="modal" data-bs-target="#modal3">
+        <button type="button" className="" onClick={()=>showModal('modal3')}>
         Modal 3
         </button>
         </li>
