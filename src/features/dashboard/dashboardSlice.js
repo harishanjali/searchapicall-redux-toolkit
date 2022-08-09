@@ -17,7 +17,17 @@ export const fetchDashboard = createAsyncThunk('dashboard/fetchDashboard', async
     }
     
     )
-    .then(response =>response.data.assets.digital_land.ethereum['0xb15069b02e4E9177cb473CbeF3a37Ba1Ed704b26'].erc721)
+    .then(response =>{
+      let erc721 = response.data.assets.digital_land.ethereum['0xb15069b02e4E9177cb473CbeF3a37Ba1Ed704b26'].erc721
+      let erc20 = response.data.assets.digital_land.ethereum['0xb15069b02e4E9177cb473CbeF3a37Ba1Ed704b26'].erc20
+      let lofty1 = response.data.assets.land_link.lofty['917-Pawnee-Ave_Memphis-TN-38109']
+      let lofty2 = response.data.assets.land_link.lofty['12627-Franklin-Blvd_Lakewood-OH-44107']
+      let realty_mogul = response.data.assets.land_link.realty_mogul['2013601']
+      // erc721 = [...erc721,...erc20]
+      erc721 = [...erc721,lofty1,lofty2,realty_mogul]
+      return erc721;
+
+    })
 })
 const dashSlice = createSlice({
   name: 'dashboard',

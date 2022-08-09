@@ -32,6 +32,7 @@ export default function DashboardView() {
   }
   const isThereData = ()=>{
     if(myPlot!==undefined){
+      console.log(myPlot)
       return myPlot
     }
     else{
